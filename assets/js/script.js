@@ -30,6 +30,16 @@ function geocode(location) {
 
       var lat = response.data.results[0].geometry.location.lat;
       var lng = response.data.results[0].geometry.location.lng;
+      var placeID = response.data.results[0].place_id;
+
+      var googleAPI = "https://maps.googleapis.com/maps/api/place/details/json?place_id=" + placeID + "fields=name,rating,review,formatted_phone_number&key=AIzaSyArL-wUmgK_sv4ka_NOszISC-RRSv4FCiI"
+
+      fetch(googleAPI) 
+        .then(function(response){
+          console.log(response)
+         return response.json();
+      })
+
       myMap.panTo({
         lat: lat,
         lng: lng,
@@ -43,3 +53,13 @@ function btnSearchHandler() {
 }
 
 document.getElementById('search').onclick = btnSearchHandler;
+
+// function getReview () {
+   var googleAPI = "https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJN1t_tDeuEmsRUsoyG83frY4&fields=name,rating,review,formatted_phone_number&key=AIzaSyArL-wUmgK_sv4ka_NOszISC-RRSv4FCiI"
+
+   fetch(googleAPI) 
+     .then(function(response){
+      return response.json();
+      console.log(response)
+   })
+  

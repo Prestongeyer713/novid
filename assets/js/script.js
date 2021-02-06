@@ -32,9 +32,12 @@ function geocode(location) {
       var lng = response.data.results[0].geometry.location.lng;
       var placeID = response.data.results[0].place_id;
 
-      var googleAPI = "https://maps.googleapis.com/maps/api/place/details/json?place_id=" + placeID + "fields=name,rating,review,formatted_phone_number&key=AIzaSyArL-wUmgK_sv4ka_NOszISC-RRSv4FCiI"
+      var googleAPI = "https://maps.googleapis.com/maps/api/place/details/json?place_id=" + placeID + "&fields=name,rating,review,formatted_phone_number&key=AIzaSyArL-wUmgK_sv4ka_NOszISC-RRSv4FCiI"
 
-      fetch(googleAPI) 
+      fetch(googleAPI, {
+        mode: "cors",
+        credentials: "include",
+      }) 
         .then(function(response){
           console.log(response)
          return response.json();
@@ -63,3 +66,5 @@ document.getElementById('search').onclick = btnSearchHandler;
       console.log(response)
    })
   
+  //  https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJkcH9-m9y54gRhErOClvJq3I&fields=name,rating,review,formatted_phone_number&key=AIzaSyArL-wUmgK_sv4ka_NOszISC-RRSv4FCiI
+  //  https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJN1t_tDeuEmsRUsoyG83frY4&fields=name,rating,review,formatted_phone_number&key=AIzaSyArL-wUmgK_sv4ka_NOszISC-RRSv4FCiI

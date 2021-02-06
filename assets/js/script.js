@@ -34,12 +34,14 @@ function geocode(location) {
         lat: lat,
         lng: lng,
       });
+      getRestaurants(lat, lng);
     });
 }
 
-function btnSearchHandler() {
+function submitHandler(event) {
+  event.preventDefault();
   var location = document.getElementById('location').value;
   geocode(location);
 }
 
-document.getElementById('search').onclick = btnSearchHandler;
+document.getElementById('search').onsubmit = submitHandler;

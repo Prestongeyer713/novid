@@ -75,11 +75,16 @@ function getRestaurants(lat = 28.5, lng = -81.3) {
         }
         let li = document.createElement('li');
         li.className = 'collection-item';
+        let linkItem = document.createElement('a');
+        linkItem.className = 'restaurant-item';
 
-        li.innerHTML = `${restaurant.name} `;
-        if (restaurant.highlights.includes('Delivery')) li.innerHTML += '<i class="fas fa-truck"></i>';
-        if (restaurant.highlights.includes('Outdoor Seating')) li.innerHTML += '<i class="fas fa-sun"></i>';
-        li.innerHTML += ` <em>${restaurant.phone_numbers}</em>`;
+        linkItem.innerHTML = `${restaurant.name} `;
+        if (restaurant.highlights.includes('Delivery')) linkItem.innerHTML += '<i class="fas fa-truck"></i>';
+        if (restaurant.highlights.includes('Outdoor Seating')) linkItem.innerHTML += '<i class="fas fa-sun"></i>';
+        linkItem.innerHTML += ` <em>${restaurant.phone_numbers}</em>`;
+        linkItem.setAttribute('href', restaurant.url);
+        linkItem.setAttribute('target', "_blank");
+        li.appendChild(linkItem);
         list.appendChild(li);
       }
     });

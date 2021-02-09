@@ -76,7 +76,7 @@ function getRestaurants(lat = 28.5, lng = -81.3) {
         let li = document.createElement('li');
         li.className = 'collection-item';
 
-        li.innerHTML = `${restaurant.name} `;
+        listItemLink.innerHTML = `${restaurant.name} `;
         if (restaurant.highlights.includes('Delivery')) li.innerHTML += '<i class="fas fa-truck"></i>';
         if (restaurant.highlights.includes('Outdoor Seating')) li.innerHTML += '<i class="fas fa-sun"></i>';
         li.innerHTML += ` <em>${restaurant.phone_numbers}</em>`;

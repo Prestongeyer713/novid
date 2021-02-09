@@ -5,16 +5,14 @@
     border-radius: 7px;
 }
 
-h1 {
-    font-family: cursive;
-}
 
+/*
 .box {
     color: cyan;
     width: 25px;
     height: 25px;
     background: darkorchid;
-    font-size: 1rem;
+    font-size: 2rem;
     font-family: cursive;
 }
 
@@ -22,7 +20,7 @@ h1 {
 .box::before {
     content: "";
     position: absolute;
-    width: 80%;
+    width: 100px;
     height: 100px;
     background: linear-gradient(45deg, darkorchid, #000000, #000000, cyan);
     z-index: -1;
@@ -30,7 +28,7 @@ h1 {
 }
 
 .box:hover::before {
-    transform: rotate(180deg);
+    transform: rotate(270deg);
 }
 
 .center {

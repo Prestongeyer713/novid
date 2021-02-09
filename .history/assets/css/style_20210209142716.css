@@ -5,9 +5,7 @@
     border-radius: 7px;
 }
 
-h1 {
-    font-family: cursive;
-}
+
 
 .box {
     color: cyan;
@@ -30,7 +28,7 @@ h1 {
 }
 
 .box:hover::before {
-    transform: rotate(180deg);
+    transform: rotate(270deg);
 }
 
 .center {

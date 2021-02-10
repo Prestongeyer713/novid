@@ -60,7 +60,7 @@ function getRestaurants(lat = 28.5, lng = -81.3) {
       if (results < 10) numShown = results;
 
       for (let i = 0; i < numShown; i++) {
-        let restaurant = response.data.restaurants[i];
+        var restaurant = response.data.restaurants[i];
         console.log(restaurant);
         restaurant = restaurant.restaurant;
         if (restaurant.location.latitude && restaurant.location.longitude) {
@@ -86,7 +86,14 @@ function getRestaurants(lat = 28.5, lng = -81.3) {
         linkItem.setAttribute('target', "_blank");
         li.appendChild(linkItem);
         list.appendChild(li);
+      }    
+       //SET Storage
+      function storeReviews () {
+        sessionStorage.setItem('review', JSON.stringify(response.data.restaurants))
+        console.log(response.data.restaurants)
       }
+  
+      storeReviews();
     });
 }
 
@@ -99,4 +106,36 @@ function getRestaurantReviews() {
     .then(response => console.log(response));
 }
 
-// getRestaurantReviews();
+//GET Storage
+function getReviews() {
+  let restaurant = JSON.parse(sessionStorage.getItem('review'))
+  console.log(restaurant)
+
+
+  // let numShown;
+  // if (restaurant.length > 10) numShown = 10;
+  // if (restaurant.length < 10) numShown = results;
+
+  
+  // console.log(restaurant);
+  // restaurant = restaurant.restaurant;
+
+  // let list = document.getElementById('restaurant-list');
+
+  // let li = document.createElement('li');
+  // li.className = 'collection-item';
+  // let linkItem = document.createElement('a');
+  // linkItem.className = 'restaurant-item';
+
+  // linkItem.innerHTML = `${restaurant.name} `;
+  // if (restaurant.highlights.includes('Delivery')) linkItem.innerHTML += '<i class="fas fa-truck"></i>';
+  // if (restaurant.highlights.includes('Outdoor Seating')) linkItem.innerHTML += '<i class="fas fa-sun"></i>';
+  // linkItem.innerHTML += ` <em>${restaurant.phone_numbers}</em>`;
+  // linkItem.setAttribute('href', restaurant.url);
+  // linkItem.setAttribute('target', "_blank");
+  // li.appendChild(linkItem);
+  // list.appendChild(li);
+  
+}
+
+getReviews();

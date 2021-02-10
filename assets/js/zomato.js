@@ -60,7 +60,7 @@ function getRestaurants(lat = 28.5, lng = -81.3) {
       if (results < 10) numShown = results;
 
       for (let i = 0; i < numShown; i++) {
-        let restaurant = response.data.restaurants[i];
+        var restaurant = response.data.restaurants[i];
         console.log(restaurant);
         restaurant = restaurant.restaurant;
         if (restaurant.location.latitude && restaurant.location.longitude) {
@@ -86,7 +86,14 @@ function getRestaurants(lat = 28.5, lng = -81.3) {
         linkItem.setAttribute('target', "_blank");
         li.appendChild(linkItem);
         list.appendChild(li);
+      }    
+       //SET Storage
+      function storeReviews () {
+        sessionStorage.setItem('review', JSON.stringify(restaurant))
+        console.log(restaurant)
       }
+  
+      storeReviews();
     });
 }
 
@@ -99,4 +106,10 @@ function getRestaurantReviews() {
     .then(response => console.log(response));
 }
 
-// getRestaurantReviews();
+//GET Storage
+function getReviews() {
+  sessionStorage.getItem('review')
+  console.log(sessionStorage.getItem('review'))
+}
+
+getReviews();

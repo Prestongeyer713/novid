@@ -89,8 +89,8 @@ function getRestaurants(lat = 28.5, lng = -81.3) {
       }    
        //SET Storage
       function storeReviews () {
-        sessionStorage.setItem('review', JSON.stringify(restaurant))
-        console.log(restaurant)
+        sessionStorage.setItem('review', JSON.stringify(response.data.restaurants))
+        console.log(response.data.restaurants)
       }
   
       storeReviews();
@@ -108,8 +108,34 @@ function getRestaurantReviews() {
 
 //GET Storage
 function getReviews() {
-  sessionStorage.getItem('review')
-  console.log(sessionStorage.getItem('review'))
+  let restaurant = JSON.parse(sessionStorage.getItem('review'))
+  console.log(restaurant)
+
+
+  let numShown;
+  if (restaurant.length > 10) numShown = 10;
+  if (restaurant.length < 10) numShown = results;
+
+  
+  console.log(restaurant);
+  restaurant = restaurant.restaurant;
+
+  let list = document.getElementById('restaurant-list');
+
+  let li = document.createElement('li');
+  li.className = 'collection-item';
+  let linkItem = document.createElement('a');
+  linkItem.className = 'restaurant-item';
+
+  linkItem.innerHTML = `${restaurant.name} `;
+  if (restaurant.highlights.includes('Delivery')) linkItem.innerHTML += '<i class="fas fa-truck"></i>';
+  if (restaurant.highlights.includes('Outdoor Seating')) linkItem.innerHTML += '<i class="fas fa-sun"></i>';
+  linkItem.innerHTML += ` <em>${restaurant.phone_numbers}</em>`;
+  linkItem.setAttribute('href', restaurant.url);
+  linkItem.setAttribute('target', "_blank");
+  li.appendChild(linkItem);
+  list.appendChild(li);
+  
 }
 
 getReviews();

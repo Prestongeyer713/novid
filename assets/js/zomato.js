@@ -95,3 +95,15 @@ function getRestaurantReviews() {
 }
 
 // getRestaurantReviews();
+
+function getRestaurantInfo(id) {
+  // let id = 17057740;  // example business id
+  axios
+    .get('https://developers.zomato.com/api/v2.1/reviews?res_id=17057740', {
+      headers: zomato.headers,
+    })
+    .then(response => {
+      console.log(response);
+      response.data.user_reviews.forEach(review => console.log(review.review.review_text));
+    });
+}

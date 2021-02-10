@@ -28,3 +28,11 @@ function submitHandler(event) {
 }
 
 document.getElementById('search').onsubmit = submitHandler;
+
+$(document).ready(function () {
+  $('.modal').modal();
+});
+
+$('ol').on('click', 'li', event => {
+  M.Modal.getInstance(document.getElementById('modal')).open();
+});

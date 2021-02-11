@@ -60,7 +60,7 @@ function getRestaurants(lat = 28.5, lng = -81.3) {
       if (results < 10) numShown = results;
 
       for (let i = 0; i < numShown; i++) {
-        let restaurant = response.data.restaurants[i];
+        var restaurant = response.data.restaurants[i];
         console.log(restaurant);
         restaurant = restaurant.restaurant;
         if (restaurant.location.latitude && restaurant.location.longitude) {
@@ -75,13 +75,25 @@ function getRestaurants(lat = 28.5, lng = -81.3) {
         }
         let li = document.createElement('li');
         li.className = 'collection-item';
+        let linkItem = document.createElement('a');
+        linkItem.className = 'restaurant-item';
 
-        li.innerHTML = `${restaurant.name} `;
-        if (restaurant.highlights.includes('Delivery')) li.innerHTML += '<i class="fas fa-truck"></i>';
-        if (restaurant.highlights.includes('Outdoor Seating')) li.innerHTML += '<i class="fas fa-sun"></i>';
-        li.innerHTML += ` <em>${restaurant.phone_numbers}</em>`;
+        linkItem.innerHTML = `${restaurant.name} `;
+        if (restaurant.highlights.includes('Delivery')) linkItem.innerHTML += '<i class="fas fa-truck"></i>';
+        if (restaurant.highlights.includes('Outdoor Seating')) linkItem.innerHTML += '<i class="fas fa-sun"></i>';
+        linkItem.innerHTML += ` <em>${restaurant.phone_numbers}</em>`;
+        linkItem.setAttribute('href', restaurant.url);
+        linkItem.setAttribute('target', "_blank");
+        li.appendChild(linkItem);
         list.appendChild(li);
+      }    
+       //SET Storage
+      function storeReviews () {
+        sessionStorage.setItem('review', JSON.stringify(response.data.restaurants))
+        console.log(response.data.restaurants)
       }
+  
+      storeReviews();
     });
 }
 
@@ -94,4 +106,36 @@ function getRestaurantReviews() {
     .then(response => console.log(response));
 }
 
-// getRestaurantReviews();
+//GET Storage
+function getReviews() {
+  let restaurants = JSON.parse(sessionStorage.getItem('review'))
+  console.log(restaurant)
+
+  let list = document.getElementById('restaurant-list');
+  list.innerHTML = '';
+
+  for (let i = 0; i < 10; i++) {
+    var restaurant = restaurants[i];
+    console.log(restaurant);
+    restaurant = restaurant.restaurant;
+    
+    let li = document.createElement('li');
+    li.className = 'collection-item';
+    let linkItem = document.createElement('a');
+    linkItem.className = 'restaurant-item';
+
+    linkItem.innerHTML = `${restaurant.name} `;
+    if (restaurant.highlights.includes('Delivery')) linkItem.innerHTML += '<i class="fas fa-truck"></i>';
+    if (restaurant.highlights.includes('Outdoor Seating')) linkItem.innerHTML += '<i class="fas fa-sun"></i>';
+    linkItem.innerHTML += ` <em>${restaurant.phone_numbers}</em>`;
+    linkItem.setAttribute('href', restaurant.url);
+    linkItem.setAttribute('target', "_blank");
+    li.appendChild(linkItem);
+    console.log(li)
+    list.appendChild(li);
+    console.log(list)
+  }    
+  
+}
+
+getReviews();

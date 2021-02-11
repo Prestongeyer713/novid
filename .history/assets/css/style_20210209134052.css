@@ -1,0 +1,15 @@
+#search-text {
+    border: solid 1px black;
+    background-color: whitesmoke;
+    margin-top: 10px;
+    border-radius: 7px;
+}
+
+.box {
+    color: cyan;
+    width: 250px;
+    height: 250px;
+    background: darkorchid;
+    font-size: 2rem;
+    font-family: cursive;
+}

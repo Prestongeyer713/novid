@@ -1,7 +1,3 @@
-a {
-    color: black;
-}
-
 #search-text {
     border: solid 1px black;
     background-color: whitesmoke;
@@ -10,7 +6,7 @@ a {
 }
 
 h1 {
-    font-family: cursive;
+    font-family: wastinger;
 }
 
 .box {
@@ -19,7 +15,7 @@ h1 {
     height: 25px;
     background: darkorchid;
     font-size: 1rem;
-    font-family: cursive;
+    font-family: balqis;
 }
 
 
@@ -46,8 +42,4 @@ h1 {
 .main {
     width: 110px;
     height: 110px;
-}
-
-.collection-item:hover {
-    background-color: cyan;
 }

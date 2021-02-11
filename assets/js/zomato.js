@@ -25,7 +25,7 @@ function getRestaurants(lat = 28.5, lng = -81.3) {
   let radius = L.GeometryUtil.length([map.getBounds().getSouthEast(), map.getBounds().getSouthWest()]) * 0.000621371;
   console.log(`Radius: ${radius}`);
   axios
-    .get(`${zomato.endpoint}/search?q=restaurant&user-key=${zomato.api_key}&lat=${lat}&lon=${lng}&radius=${radius}`, {
+    .get(`${zomato.endpoint}/search?&lat=${lat}&lon=${lng}&radius=${radius}`, {
       headers: zomato.headers,
     })
     .then(response => {
@@ -83,16 +83,16 @@ function getRestaurants(lat = 28.5, lng = -81.3) {
         if (restaurant.highlights.includes('Outdoor Seating')) linkItem.innerHTML += '<i class="fas fa-sun"></i>';
         linkItem.innerHTML += ` <em>${restaurant.phone_numbers}</em>`;
         linkItem.setAttribute('href', restaurant.url);
-        linkItem.setAttribute('target', "_blank");
+        linkItem.setAttribute('target', '_blank');
         li.appendChild(linkItem);
         list.appendChild(li);
-      }    
-       //SET Storage
-      function storeReviews () {
-        sessionStorage.setItem('review', JSON.stringify(response.data.restaurants))
-        console.log(response.data.restaurants)
       }
-  
+      //SET Storage
+      function storeReviews() {
+        sessionStorage.setItem('review', JSON.stringify(response.data.restaurants));
+        console.log(response.data.restaurants);
+      }
+
       storeReviews();
     });
 }
@@ -108,8 +108,8 @@ function getRestaurantReviews() {
 
 //GET Storage
 function getReviews() {
-  let restaurants = JSON.parse(sessionStorage.getItem('review'))
-  console.log(restaurant)
+  let restaurants = JSON.parse(sessionStorage.getItem('review'));
+  console.log(restaurant);
 
   let list = document.getElementById('restaurant-list');
   list.innerHTML = '';
@@ -118,7 +118,7 @@ function getReviews() {
     var restaurant = restaurants[i];
     console.log(restaurant);
     restaurant = restaurant.restaurant;
-    
+
     let li = document.createElement('li');
     li.className = 'collection-item';
     let linkItem = document.createElement('a');
@@ -129,13 +129,12 @@ function getReviews() {
     if (restaurant.highlights.includes('Outdoor Seating')) linkItem.innerHTML += '<i class="fas fa-sun"></i>';
     linkItem.innerHTML += ` <em>${restaurant.phone_numbers}</em>`;
     linkItem.setAttribute('href', restaurant.url);
-    linkItem.setAttribute('target', "_blank");
+    linkItem.setAttribute('target', '_blank');
     li.appendChild(linkItem);
-    console.log(li)
+    console.log(li);
     list.appendChild(li);
-    console.log(list)
-  }    
-  
+    console.log(list);
+  }
 }
 
 getReviews();

@@ -7,3 +7,7 @@ If you wish to look at additional information regarding a certain restaurant you
 the link will take you to the restaurants zamatoe review page where you can read reviews and even check the menu.
 
 ![novid](https://user-images.githubusercontent.com/75324665/107859719-6862d280-6e09-11eb-8b0a-dbfc54e8da06.gif)
+
+https://prestongeyer713.github.io/novid/
+
+this website was created by Urika Pye, Preston Geyer, Kurt Pessa, Paul Kupiszewski, and Nikki Goodridge

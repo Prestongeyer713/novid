@@ -6,4 +6,4 @@ From there it will display icons to tell you whether or not the restaurant you a
 If you wish to look at additional information regarding a certain restaurant you can click on the link in the display column.
 the link will take you to the restaurants zamatoe review page where you can read reviews and even check the menu.
 
-![](novid.gif)
+![novid](https://user-images.githubusercontent.com/75324665/107859719-6862d280-6e09-11eb-8b0a-dbfc54e8da06.gif)

@@ -16,9 +16,9 @@ h1 {
 .box {
     color: cyan;
     width: 25px;
-    height: 15px;
+    height: 25px;
     background: darkorchid;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-family: cursive;
 }
 
@@ -28,14 +28,13 @@ h1 {
     position: absolute;
     width: 80%;
     height: 100px;
-    background: repeating-linear-gradient(45deg, darkorchid, black, cyan);
+    background: linear-gradient(45deg, darkorchid, #000000, #000000, cyan);
     z-index: -1;
     transition: all .6s;
 }
 
 .box:hover::before {
     transform: rotate(180deg);
-
 }
 
 .center {
@@ -50,5 +49,6 @@ h1 {
 }
 
 .collection-item:hover {
-    background: repeating-linear-gradient(45deg, darkorchid, cyan);
+    background: linear-gradient(45deg, darkorchid, cyan);
+    color: white;
 }

@@ -1,0 +1,75 @@
+a {
+    color: black;
+}
+
+#search-text {
+    border: solid 1px black;
+    background-color: whitesmoke;
+    margin-top: 10px;
+    border-radius: 7px;
+}
+
+h1 {
+    font-family: cursive;
+}
+
+.box {
+    color: cyan;
+    width: 25px;
+    height: 25px;
+    background: darkorchid;
+    font-size: 1rem;
+    font-family: cursive;
+}
+
+
+.box::before {
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 100px;
+    background: linear-gradient(45deg, darkorchid, #000000, #000000, cyan);
+    z-index: -1;
+    transition: all .6s;
+}
+
+.box:hover::before {
+    transform: rotate(180deg);
+}
+
+
+.collection-item, .restaurant-item {
+    color: cyan;
+    width: 25px;
+    height: 25px;
+    background: darkorchid;
+    font-size: 1rem;
+    font-family: cursive;
+}
+
+
+.collection-item::before, .restaurant-item::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(45deg, darkorchid, #000000, #000000, cyan);
+    z-index: 0;
+    transition: all .6s;
+}
+
+
+.collection-item:hover::before, .restaurant-item:hover {
+    transform: rotate(180deg);
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    width: 110px;
+    height: 110px;
+}

@@ -14,11 +14,11 @@ h1 {
 }
 
 .box {
-    color: cyan;
+    color: black;
     width: 25px;
-    height: 15px;
+    height: 25px;
     background: darkorchid;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-family: cursive;
 }
 
@@ -28,7 +28,7 @@ h1 {
     position: absolute;
     width: 80%;
     height: 100px;
-    background: repeating-linear-gradient(45deg, darkorchid, black, cyan);
+    background: linear-gradient(45deg, cyan, darkorchid, darkorchid, cyan);
     z-index: -1;
     transition: all .6s;
 }
@@ -50,5 +50,5 @@ h1 {
 }
 
 .collection-item:hover {
-    background: repeating-linear-gradient(45deg, darkorchid, cyan);
+    background: linear-gradient(45deg, darkorchid,  cyan, darkorchid, cyan
 }
